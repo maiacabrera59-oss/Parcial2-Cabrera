@@ -155,4 +155,4 @@ async function eliminarCurso(req, res) {
 
 }
 
-module.exports = { probarConexion, obtenerCursosTotales, obtenerCursoPorId, crearCurso, eliminarCurso };
+module.exports = { probarConexion, obtenerCursosTotales, obtenerCursoPorId, crearCurso, eliminarCurso, };

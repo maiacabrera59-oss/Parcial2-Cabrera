@@ -2,26 +2,41 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #eef3f7;
+  color: #333;
 }
+
 
 header {
   background: linear-gradient(135deg, #2477b3, #37b37e);
   color: white;
   text-align: center;
-  padding: 40px;
+  padding: 50px 20px;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* MENÚ */
 nav {
   background-color: #2477b3;
-  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 nav ul {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
   list-style: none;
-  padding: 0;
+  padding: 15px;
   margin: 0;
 }
 
@@ -29,12 +44,63 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.3s;
 }
+
+nav a:hover {
+  color: #d4f4e5;
+}
+
 
 main {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 30px auto;
+}
+
+
+.hero {
+  background: linear-gradient(135deg, #2477b3, #37b37e);
+  color: white;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.hero h2 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.btnHero {
+  display: inline-block;
+  margin-top: 25px;
+  background-color: white;
+  color: #2477b3;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btnHero:hover {
+  background-color: #f2f2f2;
+  transform: scale(1.05);
+}
+
+
+.panel, section, main {
+  scroll-margin-top: 70px; 
 }
 
 .panel {
@@ -42,13 +108,20 @@ main {
   padding: 25px;
   border-radius: 15px;
   margin-bottom: 25px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
+
+.panel p {
+  line-height: 1.6;
+}
+
 
 h2 {
   color: #2477b3;
   text-align: center;
+  margin-bottom: 20px;
 }
+
 
 form {
   display: flex;
@@ -64,20 +137,35 @@ button {
   font-size: 16px;
 }
 
+input,
+select {
+  border: 1px solid #ccc;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #2477b3;
+}
+
+
 button {
   background-color: #2477b3;
   color: white;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
   background-color: #15527d;
 }
 
+
 #mensaje {
   text-align: center;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .ok {
@@ -88,6 +176,7 @@ button:hover {
   color: red;
 }
 
+
 .acciones {
   display: flex;
   justify-content: center;
@@ -95,6 +184,7 @@ button:hover {
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
+
 
 .sin-resultados {
   width: 100%;
@@ -111,15 +201,27 @@ button:hover {
   margin-top: 20px;
 }
 
+
 .tarjeta {
-  width: 230px;
+  width: 250px;
   background: #f8fbff;
   border-radius: 12px;
   padding: 20px;
   text-align: center;
   border-top: 5px solid #2477b3;
-  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
 }
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta h3 {
+  color: #2477b3;
+  margin-top: 0;
+}
+
 
 .activo {
   color: green;
@@ -131,6 +233,7 @@ button:hover {
   font-weight: bold;
 }
 
+
 .eliminar {
   margin-top: 10px;
   background-color: #b3261e;
@@ -140,19 +243,37 @@ button:hover {
   background-color: #8f1f18;
 }
 
+
 footer {
   text-align: center;
-  padding: 15px;
+  padding: 20px;
   background-color: #2477b3;
   color: white;
+  margin-top: 30px;
 }
 
+
 @media (max-width: 768px) {
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
   .acciones {
     flex-direction: column;
   }
 
   .tarjeta {
     width: 90%;
+  }
+
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
   }
 }

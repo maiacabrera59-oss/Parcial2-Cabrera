@@ -1,6 +1,7 @@
 const API_URL = "http://localhost:3000/api/cursos";
 
 const formulario = document.querySelector("#formCurso");
+
 const nombre = document.querySelector("#nombre");
 const categoria = document.querySelector("#categoria");
 const duracion = document.querySelector("#duracion");
@@ -15,7 +16,9 @@ const btnTodos = document.querySelector("#btnTodos");
 const btnActivos = document.querySelector("#btnActivos");
 const btnInactivos = document.querySelector("#btnInactivos");
 
+
 let cursosActuales = [];
+
 
 async function cargarCursos() {
   try {
@@ -32,11 +35,9 @@ async function cargarCursos() {
     mostrarCursos(cursosActuales);
 
   } catch (error) {
-
     mensaje.textContent = "No se pudo conectar con la API.";
     mensaje.className = "error";
     console.error(error);
-
   }
 }
 
@@ -52,11 +53,19 @@ function mostrarCursos(cursos) {
 
   cursos.forEach(curso => {
 
-    const claseEstado = curso.activo ? "activo" : "inactivo";
-    const textoEstado = curso.activo ? "Activo" : "Inactivo";
+    const estaActivo =
+      curso.activo === true ||
+      curso.activo === 1;
+
+    const claseEstado =
+      estaActivo ? "activo" : "inactivo";
+
+    const textoEstado =
+      estaActivo ? "Activo" : "Inactivo";
 
     listado.innerHTML += `
       <div class="tarjeta">
+
         <h3>${curso.nombre}</h3>
 
         <p>
@@ -70,7 +79,7 @@ function mostrarCursos(cursos) {
         </p>
 
         <p>
-          <strong>Cupos:</strong>
+          <strong>Cupos disponibles:</strong>
           ${curso.cuposDisponibles}
         </p>
 
@@ -93,21 +102,29 @@ function mostrarTodos() {
   mostrarCursos(cursosActuales);
 }
 
+
 function mostrarActivos() {
+
   const activos = cursosActuales.filter(
-    curso => curso.activo
+    curso =>
+      curso.activo === true ||
+      curso.activo === 1
   );
 
   mostrarCursos(activos);
 }
 
 function mostrarInactivos() {
+
   const inactivos = cursosActuales.filter(
-    curso => !curso.activo
+    curso =>
+      curso.activo === false ||
+      curso.activo === 0
   );
 
   mostrarCursos(inactivos);
 }
+
 
 async function guardarCurso(evento) {
 
@@ -172,6 +189,10 @@ async function guardarCurso(evento) {
 
 async function eliminarCurso(id) {
 
+  if (!confirm("¿Desea eliminar este curso?")) {
+    return;
+  }
+
   try {
 
     const respuesta = await fetch(
@@ -203,6 +224,8 @@ async function eliminarCurso(id) {
   }
 }
 
+
+
 formulario.addEventListener(
   "submit",
   guardarCurso
@@ -227,5 +250,6 @@ btnInactivos.addEventListener(
   "click",
   mostrarInactivos
 );
+
 
 cargarCursos();

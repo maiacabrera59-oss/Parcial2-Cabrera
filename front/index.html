@@ -4,108 +4,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema de Cursos</title>
+  <title>Sistema de Gestión de Cursos</title>
   <link rel="stylesheet" href="./estilo.css">
 </head>
 
 <body>
 
-<header>
-  <h1>SISTEMA DE GESTIÓN DE CURSOS</h1>
-</header>
+  <header>
+    <h1>SISTEMA DE GESTIÓN DE CURSOS</h1>
+    <p>Plataforma para la administración de cursos de capacitación</p>
+  </header>
 
-<nav>
-  <ul>
-    <li><a href="#RegistroCurso">Registrar Curso</a></li>
-    <li><a href="#listadoCursos">Listado de Cursos</a></li>
-  </ul>
-</nav>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#institucion">Institución</a></li>
+      <li><a href="#RegistroCurso">Registrar Curso</a></li>
+      <li><a href="#listadoCursos">Listado de Cursos</a></li>
+    </ul>
+  </nav>
 
-<main>
+  <main>
 
-  <section class="panel" id="RegistroCurso">
+    <section id="inicio" class="hero">
+      <h2>Bienvenidos</h2>
+    </section>
 
-    <h2>Registrar Curso</h2>
+    <section id="institucion" class="panel">
 
-    <form id="formCurso">
 
-      <input
-        type="text"
-        id="nombre"
-        placeholder="Nombre del Curso"
-        required
-      >
+  <p>
+    Los cursos extracurriculares tienen como objetivo promover la formación
+    continua y el desarrollo de competencias mediante cursos de calidad orientados
+    a estudiantes del Instituto.
+  </p>
 
-      <input
-        type="text"
-        id="categoria"
-        placeholder="Categoría"
-        required
-      >
+  <p>
+    Nuestra institución ofrece una amplia variedad de capacitaciones en diferentes
+    áreas del conocimiento.
+  </p>
 
-      <input
-        type="number"
-        id="duracion"
-        placeholder="Duración (horas)"
-        required
-      >
+  <p>
+    A través de este Sistema de Gestión de Cursos, los usuarios pueden registrar,
+    consultar y administrar cursos de manera rápida, organizada y eficiente,
+    garantizando un mejor control de la información y de los cupos disponibles.
+  </p>
 
-      <input
-        type="number"
-        id="cuposDisponibles"
-        placeholder="Cupos Disponibles"
-        required
-      >
+</section>
 
-      <select id="activo" required>
-        <option value="">Estado del curso</option>
-        <option value="true">Activo</option>
-        <option value="false">Inactivo</option>
-      </select>
+  
+    <section class="panel" id="RegistroCurso">
 
-      <button type="submit">
-        Guardar Curso
-      </button>
+      <h2>Registrar Curso</h2>
 
-    </form>
+      <form id="formCurso">
 
-    <p id="mensaje"></p>
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Nombre del Curso"
+          required
+        >
 
-  </section>
+        <input
+          type="text"
+          id="categoria"
+          placeholder="Categoría"
+          required
+        >
 
-  <section class="panel">
+        <input
+          type="number"
+          id="duracion"
+          placeholder="Duración (horas)"
+          required
+        >
 
-    <h2>Listado de Cursos</h2>
+        <input
+          type="number"
+          id="cuposDisponibles"
+          placeholder="Cupos Disponibles"
+          required
+        >
 
-    <div class="acciones">
-      <button id="btnCargar">
-        Recargar Cursos
-      </button>
+        <select id="activo" required>
+          <option value="">Estado del curso</option>
+          <option value="true">Activo</option>
+          <option value="false">Inactivo</option>
+        </select>
 
-      <button id="btnTodos">
-        Mostrar Todos
-      </button>
+        <button type="submit">
+          Guardar Curso
+        </button>
 
-      <button id="btnActivos">
-        Activos
-      </button>
+      </form>
 
-      <button id="btnInactivos">
-        Inactivos
-      </button>
-    </div>
+      <p id="mensaje"></p>
 
-    <div id="listadoCursos" class="galeria"></div>
+    </section>
 
-  </section>
 
-</main>
+<section class="panel" id="seccionCursos">
 
-<footer>
-  <p>© 2026 - Sistema de Gestión de Cursos</p>
-</footer>
+  <h2>Listado de Cursos</h2>
 
-<script src="./app.js"></script>
+  <div class="acciones">
+
+    <button id="btnCargar">
+      Recargar Cursos
+    </button>
+
+    <button id="btnTodos">
+      Mostrar Todos
+    </button>
+
+    <button id="btnActivos">
+      Activos
+    </button>
+
+    <button id="btnInactivos">
+      Inactivos
+    </button>
+
+
+  </div>
+
+  <div id="listadoCursos" class="galeria"></div>
+
+</section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 - Sistema de Gestión de Cursos</p>
+  </footer>
+
+  <script src="./app.js"></script>
 
 </body>
+
 </html>

@@ -12,7 +12,7 @@ async function probarConexion(req, res) {
 
   } catch (error) {
 
-    res.status(500).json({ ok: false, mensaje: "No se pudo conectar con SQL Server", error: error.message });
+    res.status(500).json({ ok: false, mensaje: "No se pudo conectar con SQL Server.", error: error.message });
 
   }
 

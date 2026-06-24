@@ -93,6 +93,7 @@ function mostrarCursos(cursos) {
         >
           Eliminar
         </button>
+
       </div>
     `;
   });

@@ -2,9 +2,11 @@ const express = require("express");
 
 const router = express.Router();
 
-const { obtenerCursos, crearCurso, eliminarCurso } = require("../controllers/cursoController");
+const { obtenerCursosTotales,obtenerCursoPorId, crearCurso,  eliminarCurso } = require("../controllers/cursoController");
 
-router.get("/", obtenerCursos);
+router.get("/", obtenerCursosTotales);
+
+router.get("/:id", obtenerCursoPorId);
 
 router.post("/", crearCurso);
 
